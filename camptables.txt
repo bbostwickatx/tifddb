@@ -1,0 +1,227 @@
+
+Some example datasets taken after I changed some of the column names
+
+mysql> select * from person order by id desc limit 3
+    -> ;
++------+------------+---------+-----------+--------------+-------------+------+-------------+--------+-----------------------+----------+--------+----------+---------------------+-------+--------+-------+---------+
+| id   | memunit_id | Primary | FirstName | LastName     | AgeCategory | Age  | DateOfBirth | Gender | eMail1                | PubMail1 | eMail2 | PubMail2 | WorkCellPhone       | Flags | Groups | Notes | Current |
++------+------------+---------+-----------+--------------+-------------+------+-------------+--------+-----------------------+----------+--------+----------+---------------------+-------+--------+-------+---------+
+| 1823 |       1203 | 0       | aaaaaa    | aaaaaaaaa    | Adult       | NULL | NULL        | NULL   | dasdasd               | 1        | NULL   | 1        | NULL                | NULL  | NULL   | NULL  | 0       |
+| 1822 |       1438 | 0       | aaaa      | aaaaaaaaaaaa | Adult       | NULL | NULL        | Female | NULL                  | 0        | NULL   | 0        | NULL                | NULL  | NULL   | NULL  | 0       |
+| 1821 |       1438 | 1       | aaaaaaa   | aaaaaa       | Adult       | NULL | NULL        | Male   | aaaaaaaaaaaaa@mac.com | 0        | NULL   | 0        | 111-111-1111 (cell) | NULL  | NULL   | NULL  | 0       |
++------+------------+---------+-----------+--------------+-------------+------+-------------+--------+-----------------------+----------+--------+----------+---------------------+-------+--------+-------+---------+
+
+mysql> select * from camper order by id desc limit 3
+    -> ;
++------+-----------+------------+-----------+----------+------+-------------+---------------+---------------+-----------------+------+-------------+-----------------+-------+----------+-----------+-----------+-------+------------+-----------------+------------------------+-------+------------+-----------+
+| id   | CamperNum | regform_id | person_id | CampYear | FtPt | ScholarType | ScholarReason | StaffPosition | HousingAssigned | Band | Instruments | InFamilyProgram | Flags | ShirtCut | ShirtSize | FreeShirt | Vegan | Vegetarian | DietaryComments | AlcoholPolicyInitialed | Notes | Registered | CheckedIn |
++------+-----------+------------+-----------+----------+------+-------------+---------------+---------------+-----------------+------+-------------+-----------------+-------+----------+-----------+-----------+-------+------------+-----------------+------------------------+-------+------------+-----------+
+| 2442 | NULL      |       1546 |       787 |     2018 | PT   | None        | NULL          | NULL          | NULL            | 0    | NULL        | 0               | NULL  | M        | M         | 0         | 0     | 0          | NULL            | 1                      | NULL  | 1          | 1         |
+| 2441 | NULL      |       1545 |      1809 |     2018 | FT   | None        | NULL          | NULL          | K2              | 0    | NULL        | 0               | NULL  | M        | M         | 0         | 0     | 0          | NULL            | 1                      | NULL  | 1          | 1         |
+| 2440 | NULL      |       1545 |      1808 |     2018 | FT   | None        | NULL          | NULL          | K2              | 0    | NULL        | 0               | NULL  | M        | XL        | 0         | 0     | 0          | NULL            | 1                      | NULL  | 1          | 1         |
++------+-----------+------------+-----------+----------+------+-------------+---------------+---------------+-----------------+------+-------------+-----------------+-------+----------+-----------+-----------+-------+------------+-----------------+------------------------+-------+------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from memunit order by id desc limit 3
+    -> ;
++------+------------------------------------+-----------------------+----------+---------------+-------+---------+-------+---------------------+------------+------------+-----------------+----------+----------------+---------------------------+-------+------------+---------+
+| id   | MailingName                        | Address1              | Address2 | City          | State | Country | Zip   | HomePhone           | MemberType | MemberYear | FirstMemberYear | HardCopy | FreeNewsletter | Notes                     | Flags | LastCampYr | Current |
++------+------------------------------------+-----------------------+----------+---------------+-------+---------+-------+---------------------+------------+------------+-----------------+----------+----------------+---------------------------+-------+------------+---------+
+| 1438 | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa | 123 main              | NULL     | Breaux Bridge | LA    | NULL    | 70517 | 555-222-1111        | OTH        |       2017 |            NULL | 0        | 0              | 2018 Cajan Zydeco Teacher | NULL  |       NULL | 0       |
+| 1437 | aaaaaaaaaaaaaaaaa                  | 123 main              | NULL     | Austin        | TX    | NULL    | 78745 | 555-222-1111 (cell) | REG        |       2019 |            NULL | 0        | 0              | NULL                      | NULL  |       NULL | 0       |
+| 1436 | aaaaaaaaaaaa                       | 123 main              | NULL     | Tallahassee   | FL    | NULL    | 32317 |  555-222-1111       | REG        |       2019 |            NULL | 0        | 0              | NULL                      | NULL  |       NULL | 0       |
++------+------------------------------------+-----------------------+----------+---------------+-------+---------+-------+---------------------+------------+------------+-----------------+----------+----------------+---------------------------+-------+------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select * from regform order by id desc limit 3
+    -> ;
++------+------------+------+------------+------------+------------+------------+--------+-------------+--------------------------+-------------+--------------+----------------------------------------------+-----------------+------------+------------+------------+-------------+--------------+------------------+---------------+--------+--------+------------+-----------------+------------------+----------------+-------+
+| id   | memunit_id | Year | Postmark   | SecondPage | ExpLateFee | Received   | RegNum | ConfirmSent | MobilityAssistanceDevice | HousingPref | HousingPref2 | HousingNotes                                 | QualifyAsFamily | HousingFee | NumSingers | NumSyllabi | ExpCampFees | ExpShirtFees | MembershipRebate | MembershipFee | NumVHS | NumDVD | Adjustment | RefundRequested | PaymentRequested | MemYearAtStart | Notes |
++------+------------+------+------------+------------+------------+------------+--------+-------------+--------------------------+-------------+--------------+----------------------------------------------+-----------------+------------+------------+------------+-------------+--------------+------------------+---------------+--------+--------+------------+-----------------+------------------+----------------+-------+
+| 1546 |        827 | 2018 | 2018-11-06 | 0          |         25 | 2018-11-06 |      0 | 0           | NULL                     | Womens Dorm | NULL         | Given a health house - free housing upgrade. | 0               |          0 |          0 |          1 |         240 |           18 |                0 |            15 |      0 |      1 |          0 | 0               | 0                |           2018 | NULL  |
+| 1545 |       1432 | 2018 | 2018-11-02 | 0          |         50 | 2018-11-02 |      0 | 0           | NULL                     | Mens Dorm   | NULL         | NULL                                         | 0               |          0 |          0 |          1 |         550 |           36 |                0 |            30 |      0 |      0 |          0 | 0               | 0                |           2018 | NULL  |
+| 1544 |       1427 | 2018 | 2018-09-01 | 0          |          0 | 2018-09-01 |      0 | 0           | NULL                     | Mens Dorm   | NULL         | Paid Kids' Camp Counselor                    | 0               |          0 |          0 |          1 |           0 |            0 |                0 |             0 |      0 |      0 |          0 | 0               | 0                |           2017 | NULL  |
++------+------------+------+------------+------------+------------+------------+--------+-------------+--------------------------+-------------+--------------+----------------------------------------------+-----------------+------------+------------+------------+-------------+--------------+------------------+---------------+--------+--------+------------+-----------------+------------------+----------------+-------+
+3 rows in set (0.00 sec)
+
+MariaDB [tifd]> select * from tblHousingType;
++-------------------+-----------------------------+----------------+
+| TIFDHousingTypeID | TIFDHousingType             | GFCHousingType |
++-------------------+-----------------------------+----------------+
+| D                 | Dorm                        | Cabin          |
+| PC                | Private cabin (shared bath) | Lodge          |
+| PR                | Private room (private bath) | Lodge          |
++-------------------+-----------------------------+----------------+
+3 rows in set (0.00 sec)
+
+MariaDB [tifd]> select * from tblHousingChoices;
++-----------------------+
+| Choices               |
++-----------------------+
+| Couples Dorm          |
+| Family Dorm           |
+| Mens Dorm             |
+| Mixed                 |
+| None                  |
+| Private Cabin         |
+| Private Room - Double |
+| Private Room - Single |
+| Womens Dorm           |
++-----------------------+
+9 rows in set (0.00 sec)
+
+MariaDB [tifd]> select * from tblHousingRooms limit 10
+    -> ;
++-----------------+-------------------+
+| HousingAssigned | TIFDHousingTypeID |
++-----------------+-------------------+
+| A1              | D                 |
+| A2              | D                 |
+| B1              | D                 |
+| B2              | D                 |
+| C1              | D                 |
+| C2              | D                 |
+| D1              | D                 |
+| D2              | D                 |
+| E1              | D                 |
+| E2              | D                 |
++-----------------+-------------------+
+10 rows in set (0.00 sec)
+
+MariaDB [tifd]> select * from tblMembershipType;
++-----------+
+| MemType   |
++-----------+
+| REG       |
+| FAM       |
+| LIFE      |
+| LIFE2     |
+| STU       |
+| GROUP-MEM |
+| GROUP-NON |
+| ORG       |
+| OTH       |
+| NONE      |
+| INACTIVE  |
++-----------+
+
+
++------------------------+
+| Tables_in_tifd         |
++------------------------+
+| tblAgeCategories       |  <--+ constants (short list of age ranges)
+| tblCamper              |  <--| camp related info Linked via PersID (also RegID)
+| tblConstantsCamp       |  <--| constants (room prices, shirt prices etc(
+| tblConstantsMembership |  <--| only thing in here is CurMemYr=2018
+| tblDepositOperations   |  <--| one entry from 2005
+| tblEmailRegistered     |  <--|  ????   LastName,FirstName,Expr1  Is this a pivot table?  It doesn't show up in Access
+| tblHelp                |  <--| empty
+| tblHousingChoices      |  <--| constants (list of GFC room types + Couples dorm, Family dorm, mixed, none, Private Cabin, Womens dorm, etc)
+| tblHousingRooms        |  <--| a list of GFC cabins?
+| tblHousingType         |  <--| constants (dorm=D, Private Cabin = PC, Private Room = PR)
+| tblMemUnit             |  <--| Membership unit aka a household.  Mailing name, address, homephone.   MemID is the PrimaryKey
+| tblMembershipType      |  <--| Constants + a list of membership type abbreviations I have no idea what they mean
+| tblPayments            |  <--| Camp fees, deposits, etc are recorded here
+| tblPerson              |  <--| records for each person (keyed to MemUnit by MemID)  gender, email, dob, etc
+| tblRegForm             |  <--| all the stuff from the registration form that's not stored in tblPerson (housing pref, DVDs, shirt fees, regform postmark, etc
+| tblScholarReason       |  <--| constants (list of scholarship types)
+| tblT+shirts            |  <--+ a list of who ordered shirts in 2009
++------------------------+
+
+
++------------------------+--------------+------+-----+---------+-------+
+| Field                  | Type         | Null | Key | Default | Extra |
++------------------------+--------------+------+-----+---------+-------+
+| id                     | int(11)      | YES  |     | NULL    |       |
+| CamperNum              | varchar(100) | YES  |     | NULL    |       |  <---- not used
+| regform_id             | int(11)      | YES  |     | NULL    |       |
+| person_id              | int(11)      | YES  | MUL | NULL    |       |
+| CampYear               | int(11)      | NO   |     | NULL    |       |
+| FtPt                   | varchar(4)   | NO   |     | NULL    |       |  <---- not typed well
+| ScholarType            | varchar(20)  | NO   |     | NULL    |       |  <---- (Half/Full/Quarter) should be int pointing at scholartype table
+| ScholarReason          | varchar(40)  | YES  |     | NULL    |       |  <---- Volunteer, Childcare, Headlined (should be int point at scholarreson table
+| StaffPosition          | varchar(100) | YES  |     | NULL    |       |  <---- Menu Coordinator, Silent Auction Coord, etc.  Currently freeform?  Should point to a table of options?
+| HousingAssigned        | varchar(20)  | YES  |     | NULL    |       |  <--- cabin numbers? J4, H2, K1, etc
+| Band                   | char(1)      | NO   |     | NULL    |       |  0/1
+| Instruments            | varchar(100) | YES  |     | NULL    |       |  <---- freeform change to varchar255?
+| InFamilyProgram        | char(1)      | NO   |     | NULL    |       |  0/1
+| Flags                  | varchar(20)  | YES  |     | NULL    |       |  [F,K,D,C,PS] F - First response, K - Kitchen schol, A, H, D - need ride (Austin Houston Dallas?)
+| ShirtCut               | varchar(2)   | YES  |     | NULL    |       |  W/M
+| ShirtSize              | varchar(6)   | YES  |     | NULL    |       |  L,M,XL, etc.  Perhaps another subtable here of shirt sizes would be appropriate
+| FreeShirt              | char(1)      | NO   |     | NULL    |       | 0/1
+| Vegan                  | char(1)      | NO   |     | NULL    |       | 0/1
+| Vegetarian             | char(1)      | NO   |     | NULL    |       | 0/1
+| DietaryComments        | varchar(510) | YES  |     | NULL    |       | Freeform
+| AlcoholPolicyInitialed | char(1)      | NO   |     | NULL    |       | 0/1  -- redundant?  
+| Notes                  | varchar(510) | YES  |     | NULL    |       | Freeform
+| Registered             | char(1)      | NO   |     | NULL    |       | 0/1  Not sure what this means how can a camper not be registered
+| CheckedIn              | char(1)      | NO   |     | NULL    |       | 0/1 Is this filled out at camp?
++------------------------+--------------+------+-----+---------+-------+
+
+
+mysql> describe memunit;
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| id              | int(11)      | YES  |     | NULL    |       |
+| MailingName     | varchar(200) | YES  |     | NULL    |       | "Family" name (more than one member can live at an address)
+| Address1        | varchar(100) | YES  |     | NULL    |       | 
+| Address2        | varchar(100) | YES  |     | NULL    |       |
+| City            | varchar(60)  | YES  |     | NULL    |       |
+| State           | varchar(20)  | YES  |     | NULL    |       |
+| Country         | varchar(100) | YES  |     | NULL    |       |
+| Zip             | varchar(40)  | YES  |     | NULL    |       |
+| HomePhone       | varchar(100) | YES  |     | NULL    |       |
+| MemberType      | varchar(30)  | YES  |     | NULL    |       |
+| MemberYear      | int(11)      | YES  |     | NULL    |       |
+| FirstMemberYear | int(11)      | YES  |     | NULL    |       |
+| HardCopy?       | char(1)      | NO   |     | NULL    |       |
+| FreeNewsletter? | char(1)      | NO   |     | NULL    |       |
+| Notes           | varchar(510) | YES  |     | NULL    |       |
+| Flags           | varchar(20)  | YES  |     | NULL    |       |
+| LastCampYr      | int(11)      | YES  |     | NULL    |       |
+| Current         | char(1)      | NO   |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
+18 rows in set (0.00 sec)
+
+
+
+   +----+memunit+------+                                                                                      +-----------+regform+---------+
+   |                   |                                                   +---------------------------------->    id                       |
+   |   id              +<--------------+---------------------------------------------------------------------->    memunit_id               |
+   |   MailingName     |               |                                   |                                  |    Year                     |
+   |   Address1        |               |                                   |                                  |    Postmark                 |
+   |   Address2        |               |                                   |                                  |    SecondPage               |
+   |   City            |               |                                   |                                  |    ExpLateFee               |
+   |   State           |               |        +----------+person+-+      |                                  |    Received                 |
+   |   Country         |               |        |                   |      |                                  |    RegNum                   |
+   |   Zip             |               |        |   id              +<--+  |                                  |    ConfirmSent              |
+   |   HomePhone       |               +--------+   memunit_id      |   |  |  +----------+camper+---------+   |    MobilityAssistanceDevice |
+   |   MemberType      |                        |   Primary         |   |  |  |   id                      |   |    HousingPref              |
+   |   MemberYear      |                        |   FirstName       |   |  |  |   CamperNum               |   |    HousingPref2             |
+   |   FirstMemberYear |                        |   LastName        |   |  +--+   regform_id              |   |    HousingNotes             |
+   |   HardCopy        |                        |   AgeCategory     |   +-----+   person_id               |   |    QualifyAsFamily          |
+   |   FreeNewsletter  |                        |   Age             |         |   CampYear                |   |    HousingFee               |
+   |   Notes           |                        |   DateOfBirth     |         |   FtPt                    |   |    NumSingers               |
+   |   Flags           |                        |   Gender          |         |   ScholarType             |   |    NumSyllabi               |
+   |   LastCampYr      |                        |   eMail1          |         |   ScholarReason           |   |    ExpCampFees              |
+   |   Current         |                        |   PubMail1        |         |   StaffPosition           |   |    ExpShirtFees             |
+   |                   |                        |   eMail2          |         |   HousingAssigned         |   |    MembershipRebate         |
+   |                   |                        |   PubMail2        |         |   Band                    |   |    MembershipFee            |
+   |                   |                        |   WorkCellPhone   |         |   Instruments             |   |    NumVHS                   |
+   |                   |                        |   Flags           |         |   InFamilyProgram         |   |    NumDVD                   |
+   |                   |                        |   Groups          |         |   Flags                   |   |    Adjustment               |
+   +-------------------+                        |   Notes           |         |   ShirtCut                |   |    RefundRequested          |
+                                                |   Current         |         |   ShirtSize               |   |    PaymentRequeste          |
+                                                |                   |         |   FreeShirt               |   |    MemYearAtStart           |
+                                                |                   |         |   Vegan                   |   |    Notes                    |
+                                                |                   |         |   Vegetarian              |   |                             |
+                                                |                   |         |   DietaryComments         |   +-----------------------------+
+                                                |                   |         |   AlcoholPolicyInitialed  |
+                                                +-------------------+         |   Notes                   |
+                                                                              |   Registered              |
+                                                                              |   CheckedIn               |
+                                                                              +---------------------------+
+
+person.Flags:  F - First response, K - Kitchen schol, A, H, D - need ride (Austin Houston Dallas?)
+person.Groups - freeform field?  which dance groups they are from       
